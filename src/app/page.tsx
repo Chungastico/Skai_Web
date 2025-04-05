@@ -1,7 +1,13 @@
+import Hero from "../components/Hero";
+import SkaiEnAccion from "../components/SkaiEnAccion";
+import WhySkai from "../components/WhySkai";
+
 export default function Home() {
   return (
-    <main className="text-center mt-20">
-      
-    </main>
-  )
+    <>
+      <Hero />
+      <WhySkai />
+      <SkaiEnAccion />
+    </>
+  );
 }
