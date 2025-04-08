@@ -4,6 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-skai-green text-white py-6 px-4">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        
         {/* Izquierda: texto */}
         <p className="text-sm font-semibold text-center md:text-left">
           © 2025 SV Dynamics. Todos los derechos reservados.
@@ -11,10 +12,23 @@ export default function Footer() {
 
         {/* Centro: logos de patrocinadores */}
         <div className="flex items-center gap-6">
-          <img src="/images/logo-ufg.png" alt="UFG" className="h-8 object-contain" />
-          <img src="/images/logo-fedecredito.png" alt="Fedecrédito" className="h-8 object-contain" />
-          <img src="/images/logo-germina.png" alt="Germina" className="h-8 object-contain" />
+          <img
+            src="/icons/ufg.png"
+            alt="UFG"
+            className="h-16 w-auto object-contain"
+          />
+          <img
+            src="/icons/Fedecredito.png"
+            alt="Fedecrédito"
+            className="h-16 w-auto object-contain"
+          />
+          <img
+            src="/icons/Germina.png"
+            alt="Germina"
+            className="h-16 w-auto object-contain"
+          />
         </div>
+
 
         {/* Derecha: redes sociales */}
         <div className="flex items-center gap-4 text-white text-lg">
@@ -28,6 +42,7 @@ export default function Footer() {
             <FaLinkedin className="hover:text-skai-yellow transition" />
           </a>
         </div>
+
       </div>
     </footer>
   )
