@@ -17,10 +17,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className={montserrat.className}>
+      <body className={`${montserrat.className} relative`}>
         <IdiomaProvider>
           <Header />
-          <main>{children}</main>
+          {/* Ajuste global para dejar espacio al header fijo */}
+          <main className="pt-[90px] md:pt-[90px] lg:pt-[64px]">
+            {children}
+          </main>
           <Footer />
         </IdiomaProvider>
       </body>

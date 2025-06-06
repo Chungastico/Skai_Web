@@ -1,3 +1,4 @@
+
 export default function EquipoPage() {
     return (
       <main className="p-8">

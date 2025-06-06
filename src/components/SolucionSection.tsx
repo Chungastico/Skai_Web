@@ -1,6 +1,24 @@
+'use client'
+
 import Image from "next/image";
+import { useIdioma } from "../context/IdiomaContext";
 
 export default function SolucionSection() {
+  const { idioma } = useIdioma();
+
+  const textos = {
+    es: {
+      titulo: "SKAI: IA al Servicio del Medio Ambiente",
+      descripcion:
+        "Imagina una máquina que pueda diferenciar plástico, metal y papel en segundos. SKAI utiliza inteligencia artificial y sensores avanzados para automatizar la clasificación de residuos, mejorando la eficiencia y reduciendo la contaminación.",
+    },
+    en: {
+      titulo: "SKAI: AI Serving the Environment",
+      descripcion:
+        "Imagine a machine that can differentiate plastic, metal, and paper in seconds. SKAI uses artificial intelligence and advanced sensors to automate waste sorting, improving efficiency and reducing pollution.",
+    },
+  };
+
   return (
     <section className="w-full bg-skai-green py-16 px-6 md:px-20 min-h-[640px]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-center justify-between gap-12 w-full h-full">
@@ -55,13 +73,12 @@ export default function SolucionSection() {
         {/* Texto */}
         <div className="w-full md:w-1/2 text-white text-center md:text-left self-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            SKAI: IA al Servicio del <br className="hidden md:block" /> Medio Ambiente
+            {textos[idioma].titulo}
           </h2>
           <p className="text-lg leading-relaxed">
-            Imagina una máquina que pueda diferenciar plástico, metal y papel en segundos. SKAI utiliza inteligencia artificial y sensores avanzados para automatizar la clasificación de residuos, mejorando la eficiencia y reduciendo la contaminación.
+            {textos[idioma].descripcion}
           </p>
         </div>
-
       </div>
     </section>
   );

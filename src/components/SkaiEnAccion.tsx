@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useIdioma } from '../context/IdiomaContext'
 
 export default function SkaiEnAccion() {
-  const [idioma, setIdioma] = useState<'es' | 'en'>('es')
+  const { idioma } = useIdioma()
 
   const videos = {
     es: 'https://www.youtube.com/embed/570f_C323HM',
@@ -11,32 +11,26 @@ export default function SkaiEnAccion() {
   }
 
   return (
-    <section className="relative bg-white py-20 px-4 overflow-hidden">
-      {/* Imagen decorativa a la derecha */}
-      <img
-        src="/images/skai-accent-right.png"
-        alt="Decoración SKAI"
-        className="absolute right-0 top-0 h-full w-1/5 object-cover pointer-events-none"
-      />
-
+    <section
+      className="relative bg-white py-20 px-4 overflow-hidden"
+      style={{
+        backgroundImage: "url('/images/skai-accent-right.png')",
+        backgroundPosition: 'right top',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'contain',
+      }}
+    >
       <div className="w-4/5 mx-auto relative z-10 text-center">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-8">
-          <h2 className="text-4xl font-bold text-skai-darkgray">Mira a SKAI en acción</h2>
-
-          {/* Selector de idioma */}
-          <select
-            value={idioma}
-            onChange={(e) => setIdioma(e.target.value as 'es' | 'en')}
-            className="mt-4 md:mt-0 border border-skai-darkgray text-skai-darkgray font-semibold px-4 py-2 rounded"
-          >
-            <option value="es">Español</option>
-            <option value="en">Inglés</option>
-          </select>
+        <div className="mb-8">
+          <h2 className="text-4xl font-bold text-skai-darkgray">
+            {idioma === 'es' ? 'Mira a SKAI en acción' : 'See SKAI in action'}
+          </h2>
         </div>
 
-        <p className="text-lg text-skai-darkgray mb-12">
-          SKAI no es solo una idea, es una revolución en el reciclaje. Descubre cómo nuestra IA
-          clasifica residuos en tiempo real y optimiza la gestión de desechos
+        <p className="text-lg text-skai-darkgray mb-12 max-w-3xl mx-auto">
+          {idioma === 'es'
+            ? 'SKAI no es solo una idea, es una revolución en el reciclaje. Descubre cómo nuestra IA clasifica residuos en tiempo real y optimiza la gestión de desechos.'
+            : 'SKAI is not just an idea — it’s a recycling revolution. Discover how our AI classifies waste in real time and optimizes waste management.'}
         </p>
 
         {/* Video dinámico */}
@@ -44,7 +38,7 @@ export default function SkaiEnAccion() {
           <iframe
             className="w-full h-full rounded-xl shadow-lg"
             src={videos[idioma]}
-            title={`SKAI video (${idioma === 'es' ? 'Español' : 'Inglés'})`}
+            title={`SKAI video (${idioma === 'es' ? 'Español' : 'English'})`}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

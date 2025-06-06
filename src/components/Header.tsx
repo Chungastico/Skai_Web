@@ -13,6 +13,8 @@ export default function Header() {
 
   const [modoOscuro, setModoOscuro] = useState(false)
   const [menuAbierto, setMenuAbierto] = useState(false)
+  const [visible, setVisible] = useState(true)
+  const [lastScroll, setLastScroll] = useState(0)
 
   useEffect(() => {
     const modoGuardado = localStorage.getItem('modoOscuro')
@@ -28,12 +30,28 @@ export default function Header() {
     document.documentElement.classList.toggle('dark', modoOscuro)
   }, [modoOscuro])
 
+  // Ocultar al bajar / Mostrar al subir (solo en pantallas grandes)
+  useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY
+      const goingDown = current > lastScroll && current > 100
+      const goingUp = current < lastScroll
+
+      if (goingDown) setVisible(false)
+      if (goingUp) setVisible(true)
+
+      setLastScroll(current)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScroll])
+
   const toggleIdioma = () => setIdioma(idioma === 'es' ? 'en' : 'es')
   const toggleModo = () => setModoOscuro(!modoOscuro)
   const toggleMenu = () => setMenuAbierto(!menuAbierto)
   const closeMenu = () => setMenuAbierto(false)
 
-  // Traducciones
   const navLabels = {
     inicio: idioma === 'es' ? 'Inicio' : 'Home',
     sobre: idioma === 'es' ? 'Sobre SKAI' : 'About SKAI',
@@ -42,7 +60,11 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-skai-green px-6 py-4 shadow-md relative">
+    <header
+      className={`bg-skai-green px-6 py-4 shadow-md fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
+        visible ? 'md:translate-y-0' : 'md:-translate-y-full'
+      }`}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Image
@@ -70,7 +92,7 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Controles de idioma y modo */}
+        {/* Controles */}
         <div className="flex gap-4 items-center text-white text-xl">
           <button onClick={toggleIdioma} className="hover:text-skai-yellow transition">
             {idioma === 'es' ? '🇪🇸' : '🇬🇧'}
@@ -78,15 +100,13 @@ export default function Header() {
           <button onClick={toggleModo} className="hover:text-skai-yellow transition">
             {modoOscuro ? <FaMoon /> : <FaSun />}
           </button>
-
-          {/* Botón hamburguesa */}
           <button onClick={toggleMenu} className="md:hidden">
             {menuAbierto ? <FaTimes /> : <FaBars />}
           </button>
         </div>
       </div>
 
-      {/* Overlay oscuro detrás del menú */}
+      {/* Overlay */}
       {menuAbierto && (
         <div
           className="fixed inset-0 bg-black bg-opacity-60 z-40 md:hidden"
@@ -94,7 +114,7 @@ export default function Header() {
         ></div>
       )}
 
-      {/* Menú lateral móvil */}
+      {/* Menú móvil */}
       <div
         className={`fixed top-0 right-0 h-full w-1/3 bg-skai-green text-white text-sm font-semibold flex flex-col gap-6 px-6 py-10 transform transition-transform duration-300 ease-in-out z-50 ${
           menuAbierto ? 'translate-x-0' : 'translate-x-full'
