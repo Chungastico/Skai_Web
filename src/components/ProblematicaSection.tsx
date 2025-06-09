@@ -35,13 +35,21 @@ export default function ProblematicaSection() {
               : 'Can you imagine a world where trash disappears?'}
           </p>
           <div className="flex gap-4">
-            <button className="bg-skai-green text-white font-semibold px-6 py-2 rounded-full shadow hover:bg-skai-darkgreen transition">
+            <a
+              href="#solucion"
+              className="bg-skai-green text-white font-semibold px-6 py-2 rounded-full shadow hover:bg-skai-darkgreen transition"
+            >
               {idioma === 'es' ? 'DESCÚBRELO' : 'DISCOVER IT'}
-            </button>
-            <button className="bg-skai-lightgray text-skai-darkgray font-semibold px-6 py-2 rounded-full hover:bg-gray-300 transition">
+            </a>
+
+            <a
+              href="#funcionamiento"
+              className="bg-skai-lightgray text-skai-darkgray font-semibold px-6 py-2 rounded-full hover:bg-gray-300 transition"
+            >
               {idioma === 'es' ? '¿CÓMO FUNCIONA?' : 'HOW DOES IT WORK?'}
-            </button>
+            </a>
           </div>
+
         </div>
 
         {/* Placeholder visual para conservar estructura en responsive */}

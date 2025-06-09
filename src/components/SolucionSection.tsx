@@ -20,7 +20,9 @@ export default function SolucionSection() {
   };
 
   return (
-    <section className="w-full bg-skai-green py-16 px-6 md:px-20 min-h-[640px]">
+    <section 
+      id="solucion"
+      className="w-full bg-skai-green py-16 px-6 md:px-20 min-h-[640px]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-center justify-between gap-12 w-full h-full">
         
         {/* Cuadros desfasados */}

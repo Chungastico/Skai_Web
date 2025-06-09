@@ -24,11 +24,7 @@ export default function Footer() {
             alt="UFG"
             className="h-16 w-auto object-contain"
           />
-          <img
-            src="/icons/Fedecredito.png"
-            alt="Fedecrédito"
-            className="h-16 w-auto object-contain"
-          />
+
           <img
             src="/icons/Germina.png"
             alt="Germina"
@@ -39,7 +35,7 @@ export default function Footer() {
         {/* Derecha: Instagram */}
         <div className="flex items-center gap-4 text-white dark:text-skai-textdark text-lg">
           <a
-            href="https://www.instagram.com/skai/"
+            href="https://www.instagram.com/skai_sv/"
             target="_blank"
             rel="noopener noreferrer"
           >

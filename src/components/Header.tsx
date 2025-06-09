@@ -54,8 +54,8 @@ export default function Header() {
 
   const navLabels = {
     inicio: idioma === 'es' ? 'Inicio' : 'Home',
-    sobre: idioma === 'es' ? 'Sobre SKAI' : 'About SKAI',
-    equipo: idioma === 'es' ? 'Equipo' : 'Team',
+    sobre: idioma === 'es' ? 'Proyecto SKAI' : 'SKAI Project',
+    equipo: idioma === 'es' ? 'Equipo de Desarrolladores' : 'Development Team',
     contacto: idioma === 'es' ? 'Contáctanos' : 'Contact Us',
   }
 
@@ -94,12 +94,10 @@ export default function Header() {
 
         {/* Controles */}
         <div className="flex gap-4 items-center text-white text-xl">
-          <button onClick={toggleIdioma} className="hover:text-skai-yellow transition">
-            {idioma === 'es' ? '🇪🇸' : '🇬🇧'}
+          <button onClick={toggleIdioma} className="hover:text-skai-yellow transition text-xs font-bold">
+            {idioma === 'es' ? 'ENG' : 'ESP'}
           </button>
-          <button onClick={toggleModo} className="hover:text-skai-yellow transition">
-            {modoOscuro ? <FaMoon /> : <FaSun />}
-          </button>
+
           <button onClick={toggleMenu} className="md:hidden">
             {menuAbierto ? <FaTimes /> : <FaBars />}
           </button>
