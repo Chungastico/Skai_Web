@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "skai-proyect"
-  }
+    "default": "projectskai"
+  },
+  "targets": {},
+  "etags": {}
 }

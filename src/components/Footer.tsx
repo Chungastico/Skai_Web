@@ -7,11 +7,11 @@ export default function Footer() {
   const { idioma } = useIdioma()
 
   return (
-    <footer className="bg-skai-green text-white dark:bg-skai-dark py-6 px-4 transition-colors duration-300">
+    <footer className="bg-skai-green text-white py-6 px-4 transition-colors duration-300">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Izquierda: texto */}
-        <p className="text-sm font-semibold text-center md:text-left dark:text-skai-textsecondary">
+        <p className="text-sm font-semibold text-center md:text-lefttextsecondary">
           {idioma === 'es'
             ? '© 2025 SV Dynamics. Todos los derechos reservados.'
             : '© 2025 SV Dynamics. All rights reserved.'}
@@ -20,7 +20,7 @@ export default function Footer() {
         {/* Centro: logos de patrocinadores */}
         <div className="flex items-center gap-6">
           <img
-            src="/icons/ufg.png"
+            src="/icons/UFG.png"
             alt="UFG"
             className="h-16 w-auto object-contain"
           />

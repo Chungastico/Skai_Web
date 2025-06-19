@@ -12,6 +12,9 @@ const montserrat = Montserrat({
 export const metadata = {
   title: 'SKAI',
   description: 'Soluciones sostenibles con IA',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -20,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${montserrat.className} relative`}>
         <IdiomaProvider>
           <Header />
-          {/* Ajuste global para dejar espacio al header fijo */}
           <main className="pt-[90px] md:pt-[90px] lg:pt-[64px]">
             {children}
           </main>
